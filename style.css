@@ -1,0 +1,119 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.wrapper {
+	width: 100%;
+	height: 100vh;
+}
+
+canvas {
+	display: block;
+	background: #444;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.control {
+	position: absolute;
+	top: 2%;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 1;
+}
+
+.control input {
+	display:none;
+}
+
+.control .btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 5%;
+	min-width: 30px;
+	max-width: 50px;
+	margin: 0 auto;
+	border-radius: 8px;
+	opacity: 0.2;
+	font-size: 1rem;
+	font-family: "Jaldi", sans-serif;
+	color: #ffffff;
+	transition: opacity 0.5s ease, background 0.5s ease;
+}
+
+.control .btn {
+	cursor: pointer;
+}
+
+.control .btn:hover {
+	opacity: 1;
+	box-shadow: 0px 0px 2px white;
+}
+
+.control .btn:hover::after {
+	position: absolute;
+	width: 160px;
+	text-align: center;
+	opacity: 1;
+	top: 100%;
+	left: calc(50% - 79px);
+	content: "Try high resolution. Best in Chrome";
+	font-size: 0.7rem;
+	color: #ffffff;
+}
+
+.control .btn:hover::before {
+	position: absolute;
+	width: 160px;
+	text-align: center;
+	opacity:1;
+	top: calc(100% + 1px);
+	left: calc(50% - 79px);
+	content: "Try high resolution. Best in Chrome";
+	font-size: 0.7rem;
+	color: black;
+}
+
+.control input:checked ~ .btn:hover::after {
+	content: "Try low resolution";
+}
+
+.control input:checked ~ .btn:hover::before {
+	content: "Try low resolution";
+}
+
+.control input:checked ~ .btn {
+	background: white;
+	color: black;
+}
+#help {
+	display: none;
+}
+
+#help.active {
+	display: block;
+}
+
+#help .white,
+#help .black {
+	position: absolute;
+	z-index: 10;
+	width: 300px;
+	text-align: center;
+	top: 50%;
+	left: 50%;
+	font-size: 2rem;
+}
+
+#help .white {
+	transform: translate(-50%,-50%);
+	color: white;
+}
+
+#help .black {
+	transform: translate(-49%,-49%);
+	color: black;
+}
